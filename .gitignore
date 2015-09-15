@@ -14,7 +14,6 @@
 # Local configuration file (sdk path, etc)
 local.properties
 # classpath
-.classpath
 
 # general output files
 bin/
