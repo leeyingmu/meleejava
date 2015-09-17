@@ -42,6 +42,7 @@ assets/config_pro.json
 # Eclipse specific files
 .settings/
 project.properties
+*.jar
 
 # Intellij specific files
 *.iml

@@ -19,7 +19,7 @@ import com.melee.meleejava.utils.MeleeLogger;
 
 public class RDSPool {
 	
-	private static final MeleeLogger logger = Config.logger;
+	protected static final MeleeLogger logger = Config.logger;
 	
 	private static final Map<String, RDSPool> pools = new HashMap<String, RDSPool>();
 	
@@ -151,13 +151,11 @@ public class RDSPool {
 		}
 		@Override
 		public boolean onAcquireFail(Throwable t, AcquireFailConfig acquireConfig) {
-			logger.error("RDSDB", "conn acquire failed.");
 			return super.onAcquireFail(t, acquireConfig);
 		}
 		@Override
 		public boolean onConnectionException(ConnectionHandle connection, String state, Throwable t)
 		{
-			logger.error("RDSDB", "database down.");
 			return super.onConnectionException(connection, state, t);
 		}
 	}
