@@ -24,6 +24,9 @@ public class Config extends HashMap<String, Object> {
 		logger.info("melee config inited with: " + JsonUtils.toJsonString(m));
 	}
 	
+	public <T> T get(String... keys) {
+		return getDefault(null, keys);
+	}
 	
 	@SuppressWarnings("unchecked")
 	/**
@@ -31,7 +34,7 @@ public class Config extends HashMap<String, Object> {
 	 * @param keys
 	 * @return
 	 */
-	public <T> T get(String... keys) {
+	public <T> T getDefault(T def, String... keys) {
 		if (keys == null || keys.length == 0) {
 			return null;
 		}

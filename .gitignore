@@ -40,7 +40,6 @@ assets/config.pro.json
 assets/config_pro.json
 
 # Eclipse specific files
-.settings/
 project.properties
 *.jar
 
