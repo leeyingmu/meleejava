@@ -123,6 +123,8 @@ public abstract class BaseServlet extends HttpServlet {
 	 * @param r
 	 */
 	public void sendResponse(HttpServletResponse resp, MeleeHttpResponse r) {
+		//解决跨越问题
+		resp.setHeader("Access-Control-Allow-Origin", "*");
 		PrintWriter out = null;
 		try {
 			out = resp.getWriter();
