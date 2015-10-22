@@ -47,6 +47,14 @@ public class RDSPool {
 		}
 	}
 	
+	public static void destroy() {
+		for (String k: pools.keySet()) {
+			RDSPool pool = pools.get(k);
+			pool.pool.close();
+			logger.info("RDSDB", "close pool " + k);
+		}
+	}
+	
 	private String name;
 	private BoneCP pool;
 	

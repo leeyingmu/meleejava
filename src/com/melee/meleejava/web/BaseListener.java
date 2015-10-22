@@ -18,12 +18,14 @@ public abstract class BaseListener implements ServletContextListener {
 	
 	@Override
 	public void contextDestroyed(ServletContextEvent ctx) {
-		Config.getInstance().clear();
+		//销毁rds数据库连接池
+		RDSPool.destroy();
 		
 		//调用自定义销毁
 		destroyed(ctx);
 		
 		logger.info("listener", "melee server stoped");
+		Config.getInstance().clear();
 	}
 
 	@Override
