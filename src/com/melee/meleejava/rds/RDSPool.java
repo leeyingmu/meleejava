@@ -43,7 +43,7 @@ public class RDSPool {
 			url = url.replaceAll(auth+"@", "");
 			String username = auth.split(":")[0];
 			String password = auth.split(":")[1];
-			pools.put(name, new RDSPool(driver, url, username, password, minPool, maxPool, idleTimeout));
+			pools.put(name, new RDSPool(name, driver, url, username, password, minPool, maxPool, idleTimeout));
 		}
 	}
 	
@@ -58,7 +58,8 @@ public class RDSPool {
 	private String name;
 	private BoneCP pool;
 	
-	private RDSPool(String driver, String url, String username, String password, int minPool, int maxPool, long idleTimeout) {
+	private RDSPool(String name, String driver, String url, String username, String password, int minPool, int maxPool, long idleTimeout) {
+		this.name = name;
 		Connection conn = null;
 		try {
 			Class.forName(driver);
